@@ -7,11 +7,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -27,9 +30,9 @@ public class RobotContainer {
 
   private final IntakeSubsystem intakeSystem = new IntakeSubsystem();
 
-  private final XboxController driveController = new XboxController(Constants.driverXboxControllerPort);
+  private final CommandXboxController driveController = new CommandXboxController(Constants.driverXboxControllerPort);
   
-  private final XboxController operatorController = new XboxController(Constants.operatorXboxControllerPort);
+  private final CommandXboxController operatorController = new CommandXboxController(Constants.operatorXboxControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -62,7 +65,6 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    operatorController.a.whileTrue();
     
   }
    
