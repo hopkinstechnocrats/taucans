@@ -29,4 +29,6 @@ public final class Constants {
     */
     public static final double maxMotorOutput = -0.55;
     public static final double motorSpinSpeed = 0.05;
+    public static final double bottomLauncherSpeed = -0.05;
+    public static final double topLauncherSpeed = -0.04;
 }
