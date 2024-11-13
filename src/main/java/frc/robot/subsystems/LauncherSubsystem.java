@@ -21,4 +21,9 @@ public class LauncherSubsystem extends SubsystemBase{
         launcherMotorBottom.set(Constants.bottomLauncherSpeed);
         launcherMotorTop.set(Constants.topLauncherSpeed);
     }
+
+    public void launcherReverse(){
+        launcherMotorBottom.set(-Constants.bottomLauncherSpeed);
+        launcherMotorTop.set(-Constants.topLauncherSpeed);
+    }
 }

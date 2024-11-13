@@ -30,6 +30,8 @@ public class RobotContainer {
 
   private final IntakeSubsystem intakeSystem = new IntakeSubsystem();
 
+  private final LauncherSubsystem launchSubsystem = new LauncherSubsystem();
+
   private final CommandXboxController driveController = new CommandXboxController(Constants.driverXboxControllerPort);
   
   private final CommandXboxController operatorController = new CommandXboxController(Constants.operatorXboxControllerPort);
@@ -65,10 +67,11 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    operatorController.b().whileTrue(Command launcherSpin);
+    operatorController.x().whileTrue(LauncherCommands.spinLauncher(launchSubsystem));
+    operatorController.y().whileTrue(LauncherCommands.launcherReverse(launchSubsystem));
   }
    
-  
+
 
   public DriveSubsystem getDriveSubsystem() {
     return driveSubsystem;

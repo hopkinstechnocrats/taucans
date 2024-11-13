@@ -13,4 +13,12 @@ public class LauncherCommands extends Command {
         launcherSubsystem);
     }
     
+    public static Command launcherReverse(LauncherSubsystem launcherSubsystem) {
+        return Commands.run(
+            () -> {
+                launcherSubsystem.launcherReverse();
+            },
+        launcherSubsystem);
+    }
+    
 }
