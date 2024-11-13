@@ -12,9 +12,8 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.commands.IntakeCommands;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.commands.ConveyorCommands;
-import frc.robot.subsystems.ConveyorSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -29,8 +28,6 @@ public class RobotContainer {
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
 
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
-
-  private final ConveyorSubsystem conveyorSubsystem = new ConveyorSubsystem();
 
   private final CommandXboxController driveController = new CommandXboxController(Constants.driverXboxControllerPort);
   
@@ -48,15 +45,6 @@ public class RobotContainer {
                     }
             , driveSubsystem)
     );
-
-    
-  intakeSubsystem.setDefaultCommand(
-            new RunCommand(
-                    () -> {
-                      intakeSubsystem.motorSpin(Constants.maxMotorOutput*operatorController.getLeftY());
-                    }
-            , intakeSubsystem)
-    );
   }
 
   /**
@@ -68,7 +56,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
 
 
-    operatorController.a().whileTrue(ConveyorCommands.conveyorToggle(conveyorSubsystem));
+    operatorController.a().whileTrue(IntakeCommands.intakeToggle(intakeSubsystem));
+    operatorController.b().whileTrue(IntakeCommands.intakeToggleReverse(intakeSubsystem));
   }
    
   
