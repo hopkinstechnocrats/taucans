@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.LauncherCommands;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.commands.LauncherCommands;
+import frc.robot.subsystems.LauncherSubsystem;
 
 public class autoRoutines{
 
@@ -18,8 +18,8 @@ public class autoRoutines{
     public Command rotateCounterclockwise90 = DriveCommands.drive(driveSubsystem, 1, -1).withTimeout(1);
     public Command rotateClockwise45 =        DriveCommands.drive(driveSubsystem, -1, 1).withTimeout(1);
     public Command rotateCounterclockwise45 = DriveCommands.drive(driveSubsystem, 1, -1).withTimeout(1);
-    public Command moveForward(double time) {return DriveCommands.drive(driveSubsystem, 1, 1).withTimeout(time);};
-    public Command m_rotationCommand;
+    public Command moveForward(double time) {return DriveCommands.drive(driveSubsystem, 1, 1).withTimeout(1);};
+    public Command launchBall = LauncherCommands.spinLauncher(null);
 
     public Command auto_left_hook = new SequentialCommandGroup(
         moveForward(1),
@@ -46,11 +46,17 @@ public class autoRoutines{
     );
 
     public Command auto_straight = new SequentialCommandGroup(
-        moveForward(1)
+        moveForward(2)
+    );
+
+    public Command auto_straight_launch = new SequentialCommandGroup(
+        moveForward(2),
+        spinLauncher()
     );
 
    public Command selectAuto(){
         autoChooser.setDefaultOption("Straight", auto_straight);
+        autoChooser.setDefaultOption("Straight Shoot", auto_straight_launch);
         autoChooser.addOption("Right Hook", auto_right_hook);
         autoChooser.addOption("Right Curve", auto_right_curve);
         autoChooser.addOption("Left Hook", auto_left_hook);
