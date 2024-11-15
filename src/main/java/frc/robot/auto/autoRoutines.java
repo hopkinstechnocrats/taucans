@@ -91,10 +91,11 @@ public class autoRoutines{
         autoChooser.setDefaultOption("Straight", auto_straight);
         autoChooser.setDefaultOption("Straight Launch", auto_straight_launch);
         autoChooser.addOption("Right Hook", auto_right_hook);
-        autoChooser.addOption("Right Hook", auto_right_hook);
+        autoChooser.addOption("Right Hook Launch", auto_right_hook_launch);
         autoChooser.addOption("Right Curve", auto_right_curve);
         autoChooser.addOption("Right Curve Launch", auto_right_curve_launch);
         autoChooser.addOption("Left Hook", auto_left_hook);
+        autoChooser.addOption("Left Hook Launch", auto_left_hook_launch);
         autoChooser.addOption("Left Curve", auto_left_curve);
         autoChooser.addOption("Left Curve Launch", auto_left_curve_launch);
         SmartDashboard.putData("Are you starting on the left or right?", autoChooser);
