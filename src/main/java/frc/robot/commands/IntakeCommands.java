@@ -10,7 +10,7 @@ public class IntakeCommands extends Command {
         return Commands.run(
           () -> {
             intake.motorSpin();
-
+            
           },
           intake);
     }
@@ -19,7 +19,6 @@ public class IntakeCommands extends Command {
         return Commands.run(
           () -> {
             intake.motorSpinReverse();
-            
           },
           intake);
     }
