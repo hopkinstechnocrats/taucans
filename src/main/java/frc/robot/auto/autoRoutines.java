@@ -140,15 +140,18 @@ public class autoRoutines{
 
    public Command selectAuto(){
         autoChooser.setDefaultOption("Straight", auto_straight);
-        autoChooser.setDefaultOption("Straight 2 Second Pause", auto_straight_pause_2);
+        autoChooser.addOption("Straight 2 Second Pause", auto_straight_pause_2);
         autoChooser.addOption("Straight Launch", auto_straight_launch);
+        autoChooser.addOption("Straight Launch 2 Second Pause", auto_straight_launch_pause_2);
         autoChooser.addOption("Right Curve", auto_right_curve);
         autoChooser.addOption("Right Curve 2 Second Pause", auto_right_curve_pause_2);
         autoChooser.addOption("Right Curve Launch", auto_right_curve_launch);
+        autoChooser.addOption("Right Curve Launch 2 Second Pause", auto_right_curve_launch_pause_2);
         autoChooser.addOption("Right Curve Double Launch", auto_right_curve_double_launch);
         autoChooser.addOption("Left Curve", auto_left_curve);
         autoChooser.addOption("Left Curve 2 Second Pause", auto_left_curve_pause_2);
         autoChooser.addOption("Left Curve Launch", auto_left_curve_launch);
+        autoChooser.addOption("Left Curve Launch 2 Second Pause", auto_left_curve_launch_pause_2);
         autoChooser.addOption("Left Curve Double Launch", auto_left_curve_double_launch);
        
 
