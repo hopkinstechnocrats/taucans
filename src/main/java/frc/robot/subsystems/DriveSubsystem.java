@@ -16,46 +16,16 @@ public class DriveSubsystem extends SubsystemBase {
 
   // Initialize all the variables so we can use them later
 
-  WPI_TalonSRX leftLeader;
-  WPI_TalonSRX leftFollower;
-  WPI_TalonSRX rightLeader;
-  WPI_TalonSRX rightFollower;
   DifferentialDrive drive;
   public DigitalInput limitSwitch;
+
+  //private final DriveSubsystemIO io;
+  private final DriveIOInputsAutoLogged inputs = new DriveIOInputsAutoLogged();
   
 
   // DriveSubsystem contains all the code for what we want our DriveSubsystem to be
   public DriveSubsystem() {
-    // Create the motors in code
-    leftLeader = new WPI_TalonSRX(Constants.leftLeaderCANID);
-    leftFollower = new WPI_TalonSRX(Constants.leftFollowerCANID);
-    rightLeader = new WPI_TalonSRX(Constants.rightLeaderCANID);
-    rightFollower = new WPI_TalonSRX(Constants.rightFollowerCANID);
-    
-    // Set motors to default settings
-    leftLeader.configFactoryDefault();
-    leftFollower.configFactoryDefault();
-    rightLeader.configFactoryDefault();
-    rightFollower.configFactoryDefault();
-
-    // Tell motors to brake when not given any other command
-    leftLeader.setNeutralMode(NeutralMode.Brake);
-    rightLeader.setNeutralMode(NeutralMode.Brake);
-    leftFollower.setNeutralMode(NeutralMode.Brake);
-    rightFollower.setNeutralMode(NeutralMode.Brake);
-
     // Tell our drive command what type of drive we want to use and what motors to use
-    drive = new DifferentialDrive(leftLeader, rightLeader);
-
-    // Tell the follower motors to do what the Lead motors are doing
-    leftFollower.follow(leftLeader);
-    rightFollower.follow(rightLeader);
-
-    // Set the left motors to inverted because they face the opposite direction of the right motors
-    leftLeader.setInverted(true);
-    leftFollower.setInverted(true);
-    
-    
   }
 
   // Create our drive command
@@ -68,8 +38,6 @@ public class DriveSubsystem extends SubsystemBase {
     */
   }
 
-  
-    
   
 
   @Override
