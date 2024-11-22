@@ -138,8 +138,13 @@ public class autoRoutines{
         launchBall()
     );
 
+     public Command do_nothing = new SequentialCommandGroup(
+        Commands.waitSeconds(15)
+     );
+
    public Command selectAuto(){
-        autoChooser.setDefaultOption("Straight", auto_straight);
+        autoChooser.setDefaultOption("Do Nothing", do_nothing);
+        autoChooser.addOption("Straight", auto_straight);
         autoChooser.addOption("Straight 2 Second Pause", auto_straight_pause_2);
         autoChooser.addOption("Straight Launch", auto_straight_launch);
         autoChooser.addOption("Straight Launch 2 Second Pause", auto_straight_launch_pause_2);
