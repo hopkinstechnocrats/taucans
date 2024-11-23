@@ -19,6 +19,8 @@ public final class Constants {
     public static final int leftLeaderCANID = 7;
     public static final int leftFollowerCANID = 8;
     public static final int intakeMotor = 10;
+    public static final int launcherMotorTop = 11;
+    public static final int launcherMotorBottom = 12;
     //The controller ports can be changed in driverstation
     public static final int driverXboxControllerPort = 0;
     public static final int operatorXboxControllerPort = 1;
@@ -29,6 +31,8 @@ public final class Constants {
     */
     public static final double maxMotorOutput = -0.55;
     public static final double motorSpinSpeed = 0.05;
-    public static final double bottomLauncherSpeed = -0.05;
-    public static final double topLauncherSpeed = -0.04;
+    public static final double bottomLauncherSpeed = 0.05;
+    public static final double topLauncherSpeed = 0.04;
+    // different for possible spin when launching.
+    //TODO TEST AND CHANGE
 }
