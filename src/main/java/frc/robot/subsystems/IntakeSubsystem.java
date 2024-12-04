@@ -13,19 +13,11 @@ import frc.robot.Constants;
 public class IntakeSubsystem extends SubsystemBase{
     // Defining motors
     WPI_TalonSRX intakeMotor;
-    WPI_TalonSRX helperMotor;
     public IntakeSubsystem(){
         // Configuring motor settings
         intakeMotor = new WPI_TalonSRX(Constants.intakeMotor);
         intakeMotor.configFactoryDefault();
         intakeMotor.setNeutralMode(NeutralMode.Brake);
-
-        helperMotor = new WPI_TalonSRX(Constants.helperMotor);
-        helperMotor.configFactoryDefault();
-        helperMotor.setNeutralMode(NeutralMode.Brake);
-
-        helperMotor.follow(intakeMotor);
-
     }
 
     // Motor spin code
