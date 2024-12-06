@@ -31,8 +31,8 @@ public final class Constants {
     */
     public static final double maxMotorOutput = -0.55;
     public static final double motorSpinSpeed = 0.6;
-    public static final double bottomLauncherSpeed = 1;
-    public static final double topLauncherSpeed = 1;
+    public static final double bottomLauncherSpeed = -1;
+    public static final double topLauncherSpeed = -1;
     // different for possible spin when launching.
     //TODO TEST AND CHANGE
 }
