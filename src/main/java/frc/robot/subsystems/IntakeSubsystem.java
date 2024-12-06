@@ -29,4 +29,8 @@ public class IntakeSubsystem extends SubsystemBase{
     public void motorSpinReverse(){
         intakeMotor.set(Constants.motorSpinSpeed*-1);
     }
+
+    public void brake(){
+        intakeMotor.stopMotor();
+    }
 }

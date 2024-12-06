@@ -45,6 +45,7 @@ public class RobotContainer {
                     }
             , driveSubsystem)
     );
+    intakeSubsystem.setDefaultCommand(IntakeCommands.brake(intakeSubsystem));
   }
 
   /**
