@@ -9,8 +9,8 @@ public class LauncherSubsystem extends SubsystemBase{
     WPI_TalonSRX launcherMotorTop;
     WPI_TalonSRX launcherMotorBottom;
     public LauncherSubsystem(){
-    launcherMotorTop = new WPI_TalonSRX(Constants.intakeMotor);
-    launcherMotorBottom = new WPI_TalonSRX(Constants.intakeMotor);
+    launcherMotorTop = new WPI_TalonSRX(Constants.launcherMotorTop);
+    launcherMotorBottom = new WPI_TalonSRX(Constants.launcherMotorBottom);
     launcherMotorTop.configFactoryDefault();
     launcherMotorBottom.configFactoryDefault();
     launcherMotorTop.setNeutralMode(NeutralMode.Brake);
