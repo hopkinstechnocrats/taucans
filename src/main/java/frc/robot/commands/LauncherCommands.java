@@ -20,5 +20,11 @@ public class LauncherCommands extends Command {
             },
         launcherSubsystem);
     }
-    
+    public static Command brake(LauncherSubsystem launcherSubsystem) {
+        return Commands.run(
+            () -> {
+                launcherSubsystem.brake();
+            },
+        launcherSubsystem);
+    }
 }

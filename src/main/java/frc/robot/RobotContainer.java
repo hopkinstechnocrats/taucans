@@ -57,6 +57,9 @@ public class RobotContainer {
                     }
             , intakeSystem)
     );
+
+  launchSubsystem.setDefaultCommand(LauncherCommands.brake(launchSubsystem));
+            
   }
 
   
