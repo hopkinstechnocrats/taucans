@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.IntakeCommands;
 import frc.robot.commands.LauncherCommands;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -28,7 +29,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
 
-  private final IntakeSubsystem intakeSystem = new IntakeSubsystem();
+  private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
 
   private final LauncherSubsystem launchSubsystem = new LauncherSubsystem();
 
@@ -48,15 +49,8 @@ public class RobotContainer {
                     }
             , driveSubsystem)
     );
-
     
-  intakeSystem.setDefaultCommand(
-            new RunCommand(
-                    () -> {
-                      intakeSystem.motorSpin(Constants.maxMotorOutput*operatorController.getLeftY());
-                    }
-            , intakeSystem)
-    );
+  intakeSubsystem.setDefaultCommand(IntakeCommands.brake(intakeSubsystem));
 
   launchSubsystem.setDefaultCommand(LauncherCommands.brake(launchSubsystem));
             
@@ -70,6 +64,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    operatorController.a().whileTrue(IntakeCommands.intakeToggle(intakeSubsystem));
+    operatorController.b().whileTrue(IntakeCommands.intakeToggleReverse(intakeSubsystem));
     operatorController.x().whileTrue(LauncherCommands.spinLauncher(launchSubsystem));
     operatorController.y().whileTrue(LauncherCommands.launcherReverse(launchSubsystem));
   }
