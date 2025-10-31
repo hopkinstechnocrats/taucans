@@ -1,6 +1,6 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+// the WPILib BSD license file in the root directory of this project. 
 
 package frc.robot;
 
@@ -20,7 +20,7 @@ public final class Constants {
     public static final int leftFollowerCANID = 8;
     public static final int intakeMotor = 10;
     public static final int launcherMotorTop = 11;
-    public static final int launcherMotorBottom = 12;
+    public static final int launcherMotorBottom = 12;                                                                                                                                                                           
     //The controller ports can be changed in driverstation
     public static final int driverXboxControllerPort = 0;
     public static final int operatorXboxControllerPort = 1;
@@ -31,8 +31,8 @@ public final class Constants {
     */
     public static final double maxMotorOutput = -1;
     public static final double motorSpinSpeed = 1;
-    public static final double bottomLauncherSpeed = -0.6;
-    public static final double topLauncherSpeed = -0.6;
+    public static final double bottomLauncherSpeed = -0.7;
+    public static final double topLauncherSpeed = -0.7;
     // different for possible spin when launching.
     //TODO TEST AND CHANGE
 }

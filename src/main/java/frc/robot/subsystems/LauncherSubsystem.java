@@ -27,6 +27,7 @@ public class LauncherSubsystem extends SubsystemBase{
         launcherMotorTop.set(-Constants.topLauncherSpeed);
     }
     public void brake() {
-
+        launcherMotorBottom.stopMotor();
+        launcherMotorTop.stopMotor();
     }
-}
+};
