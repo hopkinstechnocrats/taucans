@@ -6,10 +6,12 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.DriveCommands;
 import frc.robot.commands.LauncherCommands;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.LauncherSubsystem;
 
 public class autoRoutines{
 
     private final DriveSubsystem driveSubsystem = new DriveSubsystem();
+    private final LauncherSubsystem launcherSubsystem = new LauncherSubsystem();
     SendableChooser<Command> autoChooser = new SendableChooser<>(); 
 
     public Command rotateClockwise90        = DriveCommands.drive(driveSubsystem, -1, 1).withTimeout(0.5);
@@ -21,11 +23,11 @@ public class autoRoutines{
     public Command rotateClockwise45        = DriveCommands.drive(driveSubsystem, -0.5, 0.5).withTimeout(1);
     public Command rotateCounterclockwise45 = DriveCommands.drive(driveSubsystem, 0.5, -0.5).withTimeout(1);
     public Command moveForward(double time) {return DriveCommands.drive(driveSubsystem, 1, 1).withTimeout(1);};
-    public Command launchBall() {return LauncherCommands.spinLauncher().withTimeout(1);};
+    public Command launchBall() {return LauncherCommands.spinLauncher(launcherSubsystem).withTimeout(1);};
 
     public Command auto_straight_launch = new SequentialCommandGroup(
-        DriveCommands.drive(driveSubsystem, 1, 1).withTimeout(1);,
-        LauncherCommands.spinLauncher(launcherSubsystem).withTimeout(1);
+        DriveCommands.drive(driveSubsystem, 1, 1).withTimeout(1),
+        LauncherCommands.spinLauncher(launcherSubsystem).withTimeout(1)
     );
     public Command do_nothing = new SequentialCommandGroup(
         Commands.waitSeconds(15)
